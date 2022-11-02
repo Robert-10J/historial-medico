@@ -15,6 +15,10 @@ class ActiveRecord {
         self::$db = $database;
     }
 
+    /**
+     * @param $tipo tipo de alerta, error o ok
+     * @param $mensaje mensaje que imprimira la alerta
+    */
     public static function setAlerta($tipo, $mensaje) {
         static::$alertas[$tipo][] = $mensaje;
     }
@@ -109,14 +113,20 @@ class ActiveRecord {
         return $resultado;
     }
 
-    // Busca un registro por su id
+    /**
+    * @param $id id a buscar en la base de datos
+    Busca un registro en la base de datos
+    */
     public static function find($id) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE id = ${id}";
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
 
-    // Obtener Registros con cierta cantidad
+    /**
+     * @param $limite limite de registros a buscar en la bd
+    Obtener Registros con cierta cantidad
+     */
     public static function get($limite) {
         $query = "SELECT * FROM " . static::$tabla . " LIMIT ${limite}";
         $resultado = self::consultarSQL($query);
@@ -171,5 +181,4 @@ class ActiveRecord {
         $resultado = self::$db->query($query);
         return $resultado;
     }
-
 }
