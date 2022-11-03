@@ -20,6 +20,7 @@
 
 @mixin boton($bgColor, $colorTexto) {
     background-color: $bgColor;
+    border-radius: 1rem;
     padding: 1.5rem 4rem;
     color: $colorTexto;
     margin-top: 2rem;

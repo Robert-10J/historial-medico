@@ -115,7 +115,6 @@ class ActiveRecord {
 
     /**
     * @param $id id a buscar en la base de datos
-    Busca un registro en la base de datos
     */
     public static function find($id) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE id = ${id}";
@@ -125,8 +124,8 @@ class ActiveRecord {
 
     /**
      * @param $limite limite de registros a buscar en la bd
-    Obtener Registros con cierta cantidad
      */
+    //Obtener registros con cierta cantidas
     public static function get($limite) {
         $query = "SELECT * FROM " . static::$tabla . " LIMIT ${limite}";
         $resultado = self::consultarSQL($query);
