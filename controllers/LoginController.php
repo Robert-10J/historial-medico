@@ -28,7 +28,7 @@ class LoginController {
                         $_SESSION['login'] = true;
 
                         // Redireccionamiento
-                        header('Location: /admin');
+                        header('Location: /pacientes');
                     }
                 } else {
                     Doctor::setAlerta('error', 'Usuario no encontrado');

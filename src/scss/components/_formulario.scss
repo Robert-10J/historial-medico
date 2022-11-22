@@ -13,12 +13,19 @@
 
     label {
         flex: 0 0 10rem;
+        padding: .8rem;
     }
 
-    input {
+    input, select, textarea {
         flex: 1;
         border: none;
         padding: calc(v.$separacion/4);
         border-radius: 1rem;
+
+        &.disabled {
+            background-color: lighten(v.$negro, 30%);
+            color: v.$blanco;
+            cursor: not-allowed;
+        }
     }
 }

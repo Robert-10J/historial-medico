@@ -22,8 +22,8 @@ class Email {
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
-        $mail->Username = 'dfcf769cf6461d';
-        $mail->Password = 'c102f4c927d666';
+        $mail->Username = $_ENV['MAIL_USER'];
+        $mail->Password = $_ENV['MAIL_PASS'];
 
         $mail->setFrom('doctores@farmacia.com');
         $mail->addAddress('doctores@farmacia.com', 'Farmacia.com');
