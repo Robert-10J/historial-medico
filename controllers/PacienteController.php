@@ -9,11 +9,8 @@ use MVC\Router;
 class PacienteController {
 
     public static function index( Router $router ) {
-
         if( !$_SESSION['nombre'] ) { session_start(); }
-
         $paciente = new Paciente;
-    
         $alertas = [];
         if( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
             $paciente->sincronizar($_POST);
@@ -26,6 +23,7 @@ class PacienteController {
                     $alertas = Paciente::getAlertas();
                 } else {
                     $paciente->guardar();
+                    echo "<script>alert('Paciente registrado correctamente')</script>";
                 }
             }
         }

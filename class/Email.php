@@ -25,8 +25,8 @@ class Email {
         $mail->Username = $_ENV['MAIL_USER'];
         $mail->Password = $_ENV['MAIL_PASS'];
 
-        $mail->setFrom('doctores@farmacia.com');
-        $mail->addAddress('doctores@farmacia.com', 'Farmacia.com');
+        $mail->setFrom('tovi.rob20@gmail.com');
+        $mail->addAddress('tovi.rob20@gmail.com', 'Farmacia.com');
         $mail->Subject = 'Confirma tu cuenta';
 
         //Set HTMl
@@ -35,7 +35,7 @@ class Email {
 
         $contenido = "<html>";
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong>Has creado tu cuenta,solo debes confirmarla creando el siguiente enlace</p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/confirmar-cuenta?token=". $this->token ."'>Confirmar Cuenta</a></p>";
+        $contenido .= "<p>Presiona aquí: <a href='www.historialmedico.com?token=". $this->token ."'>Confirmar Cuenta</a></p>";
         $contenido .= "<p>Si tú no solicitaste esta cuenta, puedes ignorar el mensaje</p>";
         $contenido .= "</html>";
 
