@@ -33,7 +33,7 @@
             </div>
             <div class="campo">
                 <label for="fechaNacimiento">Fecha Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" placeholder="Ingrese el nombre del paciente" />
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingrese el nombre del paciente" />
             </div>
             <div class="campo">
                 <label for="antecedentePersonal">Antecedente Personal:</label>
@@ -64,11 +64,12 @@
                 <input 
                     type="text"
                     id="nombrePaciente"
-                    placeholder="Nombre del paciente"
+                    placeholder="Apellidos del paciente"
                 />
             </div>
-            <input type="button" value="Buscar Paciente" class="boton" />
+            <input type="submit" value="Buscar Paciente" class="boton" />
         </form>
+        <div id="paciente-buscado" class="listado-pacientes"></div>
         <div id="pacientes" class="listado-pacientes"></div>
     </div>
 
