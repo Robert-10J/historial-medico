@@ -34,11 +34,4 @@ class PacienteController {
             'alertas' => $alertas
         ]);
     }
-
-/*     public static function registrarPaciente( Router $router) {
-
-
-        $router->render('/pacientes/index', [
-        ]);
-    } */
 }
