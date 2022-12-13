@@ -34,4 +34,25 @@ class PacienteController {
             'alertas' => $alertas
         ]);
     }
+
+    public static function infoPaciente(Router $router) {
+        $paciente = new Paciente;
+        $id = $_GET['id'];
+        $datosPaciente = $paciente->getInfoPaciente( $id );
+        $alertas = [];
+
+        if( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+
+            $paciente->sincronizar($_POST);
+            $resultado = $paciente->updateCita( $id );
+            if( $resultado ) {
+                header('Location: /pacientes');
+            }
+        } 
+
+        $router->render('/pacientes/ver-paciente', [
+            'alertas' => $alertas,
+            'datosPaciente' => $datosPaciente
+        ]);
+    }
 }

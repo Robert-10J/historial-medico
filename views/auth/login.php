@@ -28,8 +28,3 @@
         type="submit" 
     />
 </form>
-
-<div class="acciones">
-    <a href="/crear-cuenta">¿Aún no tienes una cuenta? <span>Crear Una</span></a>
-    <a href="/olvide">¿Olvidaste tu contraseña?</a>
-</div>

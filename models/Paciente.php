@@ -2,6 +2,8 @@
 
 namespace Model;
 
+use mysqli;
+
 class Paciente extends ActiveRecord {
     protected static $tabla = 'pacientes';
     protected static $columnasDB = ['id', 'nombre', 'apellidos', 'sexo','fechaNacimiento', 'antecedentePersonal', 'enfermedadActual', 'antecedenteEnfermedad', 'antecedenteFamiliar'];
@@ -15,6 +17,7 @@ class Paciente extends ActiveRecord {
     public $enfermedadActual;
     public $antecedenteEnfermedad;
     public $antecedenteFamiliar;
+    public $ultimaCita;
 
     public function __construct( $args = [] ) {
         $this->id = $args['id'] ?? null;
@@ -26,6 +29,7 @@ class Paciente extends ActiveRecord {
         $this->enfermedadActual = $args['enfermedadActual'] ?? '';
         $this->antecedenteEnfermedad = $args['antecedenteEnfermedad'] ?? '';
         $this->antecedenteFamiliar = $args['antecedenteFamiliar'] ?? '';
+        $this->ultimaCita = $args['ultimaCita'] ?? '';
     }
 
     public function validarNuevoPaciente() {
@@ -66,7 +70,21 @@ class Paciente extends ActiveRecord {
         return $resultado;
     }
 
-    public function cambiarFormatoFecha() {
-        
+    public function getInfoPaciente( $id ) {
+        $query = "SELECT * FROM ". self::$tabla. " WHERE id = '". $id ."'";
+        $resultado = self::$db->query( $query );
+        $data = mysqli_fetch_array( $resultado );
+        return $data;
+    }
+
+    public function updateCita( $id ) {
+        $query = "UPDATE ". self::$tabla ." SET ultimaCita = '". $this->ultimaCita ."' ,";
+        $query .= "antecedentePersonal = '". $this->antecedentePersonal ."', ";
+        $query .= "enfermedadActual = '". $this->enfermedadActual ."', ";
+        $query .= "antecedenteEnfermedad = '". $this->antecedenteEnfermedad ."', ";
+        $query .= "antecedenteFamiliar = '". $this->antecedenteFamiliar ."'";
+        $query .= " WHERE id = '". $id ."'";
+        $resultado = self::$db->query( $query );
+        return $resultado;
     }
 }

@@ -30,6 +30,9 @@ $router->get('/mensaje', [LoginController::class, 'mensaje']);
 //Area privada
 $router->get('/pacientes', [PacienteController::class, 'index']);
 $router->post('/pacientes', [PacienteController::class, 'index']);
+//$router->get('/ver-paciente', [PacienteController::class, 'infoPaciente']);
+$router->get('/ver-paciente', [PacienteController::class, 'infoPaciente']);
+$router->post('/ver-paciente', [PacienteController::class, 'infoPaciente']);
 
 // API Pacientes
 $router->get('/api/pacientes', [APIController::class, 'index']);

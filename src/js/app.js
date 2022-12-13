@@ -131,7 +131,7 @@ function paginaSiguiente() {
 
 function mostrarPacientes( pacientes ) {
     pacientes.forEach( paciente => {
-        const { id, nombre, apellidos, sexo, fechaNacimiento} = paciente;
+        const { id, nombre, apellidos, sexo, fechaNacimiento, ultimaCita } = paciente;
 
         const nombrePaciente = document.createElement('P');
         nombrePaciente.classList.add('nombre-paciente');
@@ -145,13 +145,23 @@ function mostrarPacientes( pacientes ) {
         fechaNacimientoPaciente.classList.add("fechaNa-paciente");
         fechaNacimientoPaciente.innerHTML = `<span>Fecha Nacimiento:</span> ${fechaNacimiento}`;
 
+        const ultimaCitaPa = document.createElement('P');
+        ultimaCitaPa.classList.add("fechaNa-paciente");
+        ultimaCitaPa.innerHTML = `<span>Ultima Cita:</span> ${ultimaCita}`;
+
         const pacienteDiv = document.createElement('DIV');
         pacienteDiv.classList.add('paciente');
         pacienteDiv.dataset.idPaciente = id;
+        
+        const infoPaciente = document.createElement('A');
+        infoPaciente.setAttribute("href", `ver-paciente?id=${id}`)
+        infoPaciente.innerHTML = `<span>Ver Informacion</span>`
 
         pacienteDiv.appendChild(nombrePaciente);
         pacienteDiv.appendChild(sexoPaciente);
         pacienteDiv.appendChild(fechaNacimientoPaciente);
+        pacienteDiv.appendChild(ultimaCitaPa)
+        pacienteDiv.appendChild(infoPaciente);
 
         document.querySelector('#pacientes').appendChild( pacienteDiv );
     });
